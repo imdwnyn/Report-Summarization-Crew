@@ -1,54 +1,111 @@
 # Report Summarization Crew
 
-Welcome to the ReportSummarizationCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+An AI-powered multi-agent system that reads long reports and produces clear, structured summaries automatically.
+
+This project uses a crew of specialized agents to break down documents, extract key points, and generate concise summaries suitable for quick reading, presentations, or further analysis.
+
+## Features
+
+* Multi-agent workflow for summarization
+* Handles long reports and documents
+* Structured summary output
+* Configurable agents and tasks
+* Built with CrewAI and LLMs
+* Easy to extend for other document workflows
+
+## How It Works
+
+The system uses a crew of agents where each agent has a role:
+
+* Research agent: reads and understands the report
+* Analysis agent: extracts key insights
+* Writer agent: produces final summary
+
+The crew collaborates step-by-step to generate a clean final summary.
+
+## Project Structure
+
+```
+report_summarization_crew/
+│
+├── src/
+│   └── report_summarization_crew/
+│       ├── config/
+│       │   ├── agents.yaml
+│       │   └── tasks.yaml
+│       ├── crew.py
+│       └── main.py
+│
+├── .env
+├── requirements.txt
+└── README.md
+```
 
 ## Installation
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+Clone the repository:
 
-First, if you haven't already, install uv:
-
-```bash
-pip install uv
+```
+git clone https://github.com/yourusername/report_summarization_crew.git
+cd report_summarization_crew
 ```
 
-Next, navigate to your project directory and install the dependencies:
+Create virtual environment:
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
 ```
-### Customizing
-
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/report_summarization_crew/config/agents.yaml` to define your agents
-- Modify `src/report_summarization_crew/config/tasks.yaml` to define your tasks
-- Modify `src/report_summarization_crew/crew.py` to add your own logic, tools and specific args
-- Modify `src/report_summarization_crew/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
+python -m venv venv
+venv\Scripts\activate   (Windows)
 ```
 
-This command initializes the report-summarization-crew Crew, assembling the agents and assigning them tasks as defined in your configuration.
+Install dependencies:
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+```
+pip install -r requirements.txt
+```
 
-## Understanding Your Crew
+Add your API key in `.env`:
 
-The report-summarization-crew Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+```
+OPENAI_API_KEY=your_key_here
+```
 
-## Support
+## Usage
 
-For support, questions, or feedback regarding the ReportSummarizationCrew Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+Run the project:
 
-Let's create wonders together with the power and simplicity of crewAI.
+```
+python main.py
+```
+
+The crew will process the report and generate a summarized output.
+
+## Configuration
+
+You can modify:
+
+* `agents.yaml` → define agent roles
+* `tasks.yaml` → define workflow
+* `crew.py` → logic for execution
+
+## Future Improvements
+
+* PDF upload support
+* Web UI with Streamlit
+* Multiple summary styles
+* Export to DOCX/PDF
+* RAG integration
+
+## Tech Stack
+
+* Python
+* CrewAI
+* LangChain
+* OpenAI API
+
+## Author
+
+Dwinayan
+
+## License
+
+MIT License
